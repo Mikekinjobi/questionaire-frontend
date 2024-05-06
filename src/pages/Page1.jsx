@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 export default function Page1() {
   return (
     <div>
+      <Link className="secret-link" to={"/download"}>Secret Link</Link>
       <h1>Consent Form</h1>
 
       <p>
