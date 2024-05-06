@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function LeftAlignedTable({ data }) {
+export default function LeftAlignedTable({ data, name}) {
   return (
-    <div className={"table-container"}>
+    <div className={name}>
       {data.map((row, index) => (
         <div className="row" key={index}>
           {row.map((cell, cellIndex) => (

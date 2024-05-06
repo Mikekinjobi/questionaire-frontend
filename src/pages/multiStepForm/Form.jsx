@@ -11,8 +11,6 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 const initialState = {
     answerId: uuidv4(),
     createdAt: new Date(),
-    gender: 'male',
-    age: 'under 18'
 };
 
 export function Form() {

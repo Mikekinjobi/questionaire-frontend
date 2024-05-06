@@ -64,7 +64,7 @@ export default function Table2({formData, updateFields}) {
     <div style={{ display: "flex" }}>
     <div style={{marginTop: "50vh"}}>
       <h1>Portfolio 2</h1>
-    <LeftAlignedTable data={[["Expected Value of the Portfolio", eValue], ["Remaining Capacity", rrTotal]]}/>
+    <LeftAlignedTable data={[["Expected Value of the Portfolio", eValue], ["Remaining Capacity", rrTotal]]} name={"table-container"}/>
     </div>
       <table>
         <thead>

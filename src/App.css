@@ -20,6 +20,12 @@ table, th, td {
   border: 1px solid black; 
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 .button-link {
   display: inline-block;
   padding: 10px 20px;
@@ -56,6 +62,25 @@ table, th, td {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+}
+
+.table-container-practise {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.table-div {
+  display: flex; 
+}
+
+@media (max-width: 425px) {
+  .table-container-practise {
+    flex-direction: column;
+  }
+  .table-div{
+    flex-direction: column;
+  }
 }
 
 .row {

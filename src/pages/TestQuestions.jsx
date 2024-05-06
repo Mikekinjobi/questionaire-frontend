@@ -11,6 +11,7 @@ export default function TestQuestions() {
   let [rrTotal, setTotal] = useState(306);
   let [result, setResult] = useState(0);
   let [submitted, setSubmitted] = useState(false)
+  let [error, setError] = useState("");
 
   const calculateTotal = (index, checked) => {
     const { Value, "Resource Requirement": ResourceRequirement } =
@@ -31,7 +32,13 @@ export default function TestQuestions() {
     const newCheckboxes = [...checkboxes];
     newCheckboxes[index] = !newCheckboxes[index];
     const totalAfterChange = calculateTotal(index, newCheckboxes[index]);
-    if (totalAfterChange < 0) return;
+    if (totalAfterChange < 0) {
+      setError("Error: Cannot select this option. Resource requirement exceeds remaining capacity.");
+      return;
+    } else {
+      setError("");
+    }
+    // if (totalAfterChange < 0) return;
     setTotal(totalAfterChange);
     const { Value, "Resource Requirement": ResourceRequirement } =
       data.testQuestions[index];
@@ -47,12 +54,12 @@ export default function TestQuestions() {
     <>
     <h1>Practice Round</h1>
 
-    <div style={{ display: "flex" }}>
+    <div className="table-div">
       {/* <div>
         <h3>Expected Value: {eValue}</h3>
         <h3>Remaining Capacity: {rrTotal}</h3>
       </div> */}
-      <LeftAlignedTable data={[["Expected Value of the Portfolio", eValue], ["Remaining Capacity", rrTotal]]}/>
+      <LeftAlignedTable data={[["Expected Value of the Portfolio", eValue], ["Remaining Capacity", rrTotal]]} name={"table-container"}/>
       <table>
         <thead>
           <tr>
@@ -71,6 +78,11 @@ export default function TestQuestions() {
               <td>{requirement["Value/Resource Requirement"]}</td>
               <td>{requirement["Value - Resource Requirement"]}</td>
               <td>
+              {calculateTotal(index, !checkboxes[index]) < 0 && (
+                <span style={{ color: 'red', fontSize:"x-small"}}>
+                Resource Requirement exceeds remaining capacity
+              </span>
+  )}
                 <input
                   type="checkbox"
                   checked={checkboxes[index]}

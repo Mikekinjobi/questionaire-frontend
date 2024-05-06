@@ -62,7 +62,7 @@ useEffect(()=>{
     <div style={{display:"flex", position: "relative"}}>
       <div style={{marginTop: "50vh"}}>
       <h1>Portfolio 1</h1>
-    <LeftAlignedTable data={[["Expected Value of The Portfolio", eValue], ["Remaining Capacity", rrTotal]]}/>
+    <LeftAlignedTable data={[["Expected Value of The Portfolio", eValue], ["Remaining Capacity", rrTotal]]} name={"table-container"}/>
     {error && <p style={{ color: "red" }}>{error}</p>}
     </div>
       <table>

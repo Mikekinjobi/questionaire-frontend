@@ -8,6 +8,11 @@ export default function Page6({formData, updateFields}) {
     const [location, setLocation] = useState('');
     const [education, setEducation] = useState('');
     const [employment, setEmployment] = useState('');
+    useEffect(()=>{
+      setGender('male');
+      setAge('under 18');
+      updateFields({gender, age})
+    }, [])
     const handleGenderChange = (e) => {
       updateFields({gender: e.target.value})
       setGender(e.target.value);
