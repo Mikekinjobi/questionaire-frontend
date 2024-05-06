@@ -12,6 +12,7 @@ import Page6 from './pages/Page6'
 import Page7 from './pages/Page7'
 import TestQuestions from './pages/TestQuestions'
 import { Form } from './pages/multiStepForm/Form'
+import DownloadExcelController from './downloadController/DownloadController'
 
 
 
@@ -26,8 +27,8 @@ function App() {
       <Route path='/comprehension-questions' element={<Page3/>}/>
       <Route path='/test' element={<TestQuestions/>}/>
       <Route path='form' element={<Form/>}/>
-      {/* <Route path='/table1' element={<Table1/>}/>
-      <Route path='/table2' element={<Table2/>}/>
+      <Route path='/download' element={<DownloadExcelController/>}/>
+      {/* <Route path='/table2' element={<Table2/>}/>
       <Route path='/demographic-questions' element={<Page6/>}/>
       <Route path='/thank-you' element={<Page7/>}/> */}
     </Routes>

@@ -1,24 +1,22 @@
 import React from "react";
-
-const jsonDataArray = [
-  {
-    name: "John Doe",
-    age: 30,
-    email: "john@example.com",
-    hobbies: ["reading", "hiking", "cooking"]
-  },
-  {
-    name: "Jane Smith",
-    age: 25,
-    email: "jane@example.com",
-    hobbies: ["painting", "swimming", "gardening"]
-  }
-];
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 const DownloadExcelController = () => {
+    const postsQuery = useQuery({
+        queryKey: ["allData"],
+        queryFn: async () => {
+          const response = await axios.get("https://questionaire-backend-01x0.onrender.com/allData");
+          return response.data.all;
+        }
+      });
+    
+      if (postsQuery.isLoading) return <h1>Loading...</h1>;
+      if (postsQuery.isError) return <h1>Error: {postsQuery.error.message}</h1>;
+
   const downloadExcelFile = () => {
     const fileName = "data.csv";
-    const csvContent = convertJsonArrayToCsv(jsonDataArray);
+    const csvContent = convertJsonArrayToCsv(postsQuery.data);
 
     const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
 
@@ -46,7 +44,7 @@ const DownloadExcelController = () => {
   };
 
   const convertJsonArrayToCsv = (jsonArray) => {
-    if (jsonArray.length === 0) return "";
+    if (!jsonArray || jsonArray.length === 0) return "";
 
     const headers = Object.keys(jsonArray[0]);
     const rows = [headers.join(",")];
