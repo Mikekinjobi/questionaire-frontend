@@ -7,7 +7,7 @@ const DownloadExcelController = () => {
         queryKey: ["allData"],
         queryFn: async () => {
           const response = await axios.get("https://questionaire-backend-01x0.onrender.com/allData");
-          return response.data.all;
+          return response.data.allData;
         }
       });
     
