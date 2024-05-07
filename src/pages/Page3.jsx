@@ -102,7 +102,7 @@ export default function Page3() {
               checked={optionsSelected.includes('Option 1')}
               onChange={handleOptionChange}
             />
-            <label htmlFor="option1">Our objective is to maximize the overall portfolio value, while ensuring that the total resource requirement does not surpass the available capacity.</label>
+            <label htmlFor="option1">Your objective is to maximize the overall portfolio value, while ensuring that the total resource requirement does not surpass the available capacity.</label>
             <br />
             <input
               type="checkbox"

@@ -8,10 +8,12 @@ export default function Page6({formData, updateFields}) {
     const [location, setLocation] = useState('');
     const [education, setEducation] = useState('');
     const [employment, setEmployment] = useState('');
+    const table1Result = ((formData.table1Evalue/3556) * 100).toFixed(1).toString() + "%";
+  const table2Result = ((formData.table2Evalue/2653) * 100).toFixed(1).toString() + "%";
     useEffect(()=>{
       setGender('male');
       setAge('under 18');
-      updateFields({gender, age})
+      updateFields({gender, age, table1Result, table2Result})
     }, [])
     const handleGenderChange = (e) => {
       updateFields({gender: e.target.value})
@@ -71,6 +73,8 @@ export default function Page6({formData, updateFields}) {
             <label for="North America">North America</label><br></br>
             <input type='radio' name='location' id='South America' value="South America" onChange={handleLocationChange}/>
             <label for="South America">South America</label><br></br>
+            <input type='radio' name='location' id='Europe' value="Europe" onChange={handleLocationChange}/>
+            <label for="Europe">Europe</label><br></br>
             <input type='radio' name='location' id='Asia' value="Asia" onChange={handleLocationChange}/>
             <label for="Asia">Asia</label><br></br>
             <input type='radio' name='location' id='Australia and Oceania' value="Australia and Oceania" onChange={handleLocationChange}/>

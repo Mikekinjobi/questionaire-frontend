@@ -27,7 +27,7 @@ export function Form() {
       <Table1 formData={{... data}} updateFields={updateFields}/>,
       <Table2 formData={{... data}} updateFields={updateFields}/>,
       <Page6 formData={{... data}} updateFields={updateFields}/>,
-      <Page7 formData={{... data}}/>
+      <Page7 formData={{... data}} updateFields={updateFields}/>
     ]);
 let condition = (
                 (currentStepIndex === 0 && (!data.hasOwnProperty('table1Choices') || !data.hasOwnProperty('table1Evalue') || data.table1Evalue === 0)) ||

@@ -62,6 +62,9 @@ useEffect(()=>{
     <div style={{display:"flex", position: "relative"}}>
       <div style={{marginTop: "50vh"}}>
       <h1>Portfolio 1</h1>
+      <div style={{width: "200px"}}>
+      <p style={{color: "blue", textAlign:"left"}}>Each portfolio item you select determines tasks the employees must perform. Higher resource requirements for selected items correspond to more difficult tasks for employees.</p>
+      </div>
     <LeftAlignedTable data={[["Expected Value of The Portfolio", eValue], ["Remaining Capacity", rrTotal]]} name={"table-container"}/>
     {error && <p style={{ color: "red" }}>{error}</p>}
     </div>
