@@ -21,10 +21,8 @@ const DownloadExcelController = () => {
     const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
 
     if (window.navigator.msSaveBlob) {
-      // For IE and Edge
       window.navigator.msSaveBlob(blob, fileName);
     } else {
-      // For other browsers
       const link = document.createElement("a");
       const url = URL.createObjectURL(blob);
       link.href = url;
@@ -38,7 +36,7 @@ const DownloadExcelController = () => {
 
   const convertValueToString = (value) => {
     if (Array.isArray(value)) {
-      return value.join(", "); // Flatten arrays into strings
+      return value.join(", ");
     }
     return value;
   };
