@@ -50,12 +50,17 @@ const DownloadExcelController = () => {
     const rows = [headers.join(",")];
 
     for (let obj of jsonArray) {
-      const values = headers.map(header => convertValueToString(obj[header]));
-      rows.push(values.join(","));
+        const values = headers.map(header => {
+            if (Array.isArray(obj[header])) {
+                return obj[header].join("; ");
+            }
+            return convertValueToString(obj[header]);
+        });
+        rows.push(values.join(","));
     }
     
     return rows.join("\n");
-  };
+};
 
   return (
     <button onClick={downloadExcelFile}>
