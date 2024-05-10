@@ -6,7 +6,7 @@ import Page7 from "../Page7";
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import { useMultistepForm } from "../../hooks/useMultistepForm"
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 
 const initialState = {
     answerId: uuidv4(),
